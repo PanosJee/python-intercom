@@ -131,7 +131,7 @@ class User(UserId):
         return cls(resp)
 
     @classmethod
-    def all(cls):
+    def all(cls, page=0, per_page=500):
         """ Return all of the Users.
 
         >>> users = User.all()
@@ -141,7 +141,7 @@ class User(UserId):
         u'first.user@example.com'
 
         """
-        resp = Intercom.get_users()
+        resp = Intercom.get_users(page=page, per_page=per_page)
         return [cls(u) for u in resp['users']]
 
     def save(self):
