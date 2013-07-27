@@ -121,7 +121,7 @@ class Intercom(object):
         3
 
         """
-        user_dict = Intercom._call('GET', Intercom.api_endpoint + 'users/?per_page=%i&page=%=i'%(per_page, page))
+        user_dict = Intercom._call('GET', Intercom.api_endpoint, {'per_page': per_page, 'page': page})
         return user_dict
 
     @classmethod
